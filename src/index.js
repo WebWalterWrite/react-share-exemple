@@ -1,12 +1,41 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import { render } from 'react-dom';
+import { createGlobalStyle } from 'styled-components';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import color from '../src/utils/style/colors';
+const { js } = color;
+const GlobalStyle = createGlobalStyle`
+*{
+  margin: 0;
+  padding: 0;
+}
+body, html{
+  height: 100%;
+  width: 100%;
+}
+header{
+  background-color:#282c34;
+  display: flex;
+  align-items: center;
+  color: ${js};
+  svg{ 
+    width: 100px;
+  }
+}
+main{
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+}
+}
+`;
+render(
+  <>
+    <GlobalStyle />
+    <App />
+  </>
+  ,
+  document.getElementById('root')
+);
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
