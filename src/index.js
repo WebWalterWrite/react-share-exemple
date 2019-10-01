@@ -21,6 +21,10 @@ header{
   svg{ 
     width: 100px;
   }
+  & :nth-child(3){
+    margin-left: 10px;
+    width:70px;
+  }
 }
 main{
   display: flex;
