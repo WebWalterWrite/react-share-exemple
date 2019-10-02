@@ -29,8 +29,8 @@ const MyPost = () => {
       <Pinterest />
       // ... others social media
   </ Socials>
-  )
-};
+  );
+}
 
 export default MyPost;
 ```
@@ -76,4 +76,67 @@ const MyPost = () => {
 };
 
 export default MyPost;
+```
+
+### Exemple de rendu
+![exemple](https://res.cloudinary.com/dajmcbds4/image/upload/v1570020857/github/react-share-socials-style-02102019.png)
+
+## Modifier l'url de partage
+
+Par default l'url actuelle est celle utilisée pour effectuer le partage sur l'un des medias sociaux car en général le bouton de partage est situé sur dans le post lui même. Cependant il est possible de transmettre une url différente une props url au(x) composant(s).
+
+```javascript
+
+// exemple de données provenants de votre base de données ou API
+data = {
+  title: "Tartelettes aux douceurs d'🍊ranges...",
+  author: 'Sammy',    
+  createdAt: '30/09/2019',
+  category: 'recettes',
+  image: '/image/upload/v1570020857'
+  url: 'https://www.monjolisite/articles/recettes/tartelettes-aux-douceurs-d-oranges',
+  preview: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque similique veniam ea dicta illo commodi et nisi pariatur incidunt reiciendis laudantium, velit obcaecati quia mollitia aut dolorum quo magni sint...'
+};
+
+// Post.js
+import React, { useState, useEffect } from 'react';
+import { Facebook, Linkedin, Pinterest } from '../social-share/SocialShare';
+import Socials from '../social-share/SocialContainer';
+
+const Post = ({idPost}) => {
+ 
+  const [post, setPost] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+    // get data post from API or DB
+    const { data } = await func(sysid);
+    return setPost(your data);
+    };
+  fetchData();
+  }, [idPost]);
+
+return (
+<section>
+  <img src={post.image} alt="post.title" />
+  <div>
+    <h1>{post.title}</h1>
+  <div>
+    <p>{post.category}</p>
+    <p><span role="img" aria-label="pen">✍</span> avec <span role="img" aria-label="heart">❤️</span>par {post.author} le  {post.createdAt}</p>
+    <p>{post.preview}</p>
+    <div>lire la suite</div>			
+    <h2>Partager</h2>
+  
+    <Socials styling="circle" color="#606060">
+      <Linkedin url={post.url} />
+      <Facebook url={post.url} />
+      <Pinterest url={post.url} />
+    </Socials> 
+  
+  </div>
+  </div>
+</section>
+);
+}
 ```
