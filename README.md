@@ -149,3 +149,22 @@ props | type | value | default | description
 position | *string* | H, V | H | Les icons sont alignés verticalement ou horizontalement
 styling | *string* | circle, square | square | La forme des icons | En forme de cercle ou carré
 color | *string* | - | origin color |  La couleur de fond des icons. Par défault celle d'origine
+
+### Linkedin
+props | type | value | default | description
+--- | --- | --- | --- | ---
+styling | *string* | circle, square | square | La forme des icons | En forme de cercle ou carré
+color | *string* | - | ![#0073B1](https://placehold.it/15/0073B1/000000?text=+) `#0073B1` |  La couleur de fond des icons. Par défault celle d'origine
+
+### Facebook
+props | type | value | default | description
+--- | --- | --- | --- | ---
+styling | *string* | circle, square | square | La forme des icons | En forme de cercle ou carré
+color | *string* | - | ![#4267B2](https://placehold.it/15/4267B2/000000?text=+) `#4267B2` |  La couleur de fond des icons. Par défault celle d'origine
+
+
+### Pinterest
+props | type | value | default | description
+--- | --- | --- | --- | ---
+styling | *string* | circle, square | square | La forme des icons | En forme de cercle ou carré
+color | *string* | - | ![#E60122](https://placehold.it/15/E60122/000000?text=+) `#E60122` |  La couleur de fond des icons. Par défault celle d'origine
