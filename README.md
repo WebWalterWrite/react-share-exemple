@@ -81,6 +81,42 @@ export default MyPost;
 ### Exemple de rendu
 ![exemple](https://res.cloudinary.com/dajmcbds4/image/upload/v1570020857/github/react-share-socials-style-02102019.png)
 
+### Modifier individuellement un composant
+Pour modifier un composant individuellement, il suffit de lui passer des props. En revanche la cohérence des éléments en sera affectée, il est préfèrable d'utiliser ce dernier sans le composant Socials.
+
+```javascript
+
+
+```javascript
+import React from 'react';
+import {Facebook, Linkedin, Pinterest} from '[YOUR PATH'];
+import Socials from '[YOUR PATH]';
+
+const MyPost = () => {
+
+// do stuff ...
+
+  return(
+  
+    // your content post...
+    
+    <h2>partager</h2>
+    
+    <Socials 
+      color="gray" // color icons
+      styling="circle" // shape icons 
+    >
+      <Linkedin />
+      <Facebook color="#F5F8FA"/>
+      <Pinterest />
+      // ... others social media
+  </ Socials>
+  )
+};
+
+export default MyPost;
+
+```
 ## Modifier l'url de partage
 
 Par default l'url actuelle est celle utilisée pour effectuer le partage sur l'un des medias sociaux car en général le bouton de partage est situé sur dans le post lui même. Cependant il est possible de transmettre une url différente une props url au(x) composant(s).
@@ -128,10 +164,10 @@ return (
     <div>lire la suite</div>			
     <h2>Partager</h2>
   
-    <Socials styling="circle" color="#606060">
-      <Linkedin url={post.url} />
-      <Facebook url={post.url} />
-      <Pinterest url={post.url} />
+    <Socials styling="circle" >
+      <Linkedin />
+      <Facebook color="#000000"/>
+      <Pinterest />
     </Socials> 
   
   </div>
@@ -140,6 +176,10 @@ return (
 );
 }
 ```
+### Exemple de rendu
+
+![exemple](https://res.cloudinary.com/dajmcbds4/image/upload/v1570031888/github/react-share-socials-props-01102019.png)
+
 ## API COMPONENTS
 
 ### Socials
