@@ -31,6 +31,7 @@ const MyPost = () => {
   )
 };
 
+export default MyPost;
 ```
 
 ## Modifier l'apparence
@@ -68,4 +69,6 @@ const MyPost = () => {
   </ Socials>
   )
 };
+
+export default MyPost;
 ```
