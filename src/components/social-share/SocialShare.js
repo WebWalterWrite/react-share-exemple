@@ -1,79 +1,69 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import socials from './socialsUrl';
-import { href } from '../../utils/fn/browser';
-import { SocialContainer } from './socials.styled';
-import { linkedinIcon, facebookIcon, pinterestIcon } from '../../utils/style/icons';
+import React from "react";
+import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import socials from "./socialsUrl";
+import { href } from "../../utils/fn/browser";
+import { SocialContainer } from "./socials.styled";
+import {
+	linkedinIcon,
+	facebookIcon,
+	pinterestIcon
+} from "../../utils/style/icons";
 const { facebook, linkedin, pinterest } = socials;
 
 /**
- * @description - Composant stylé Linkedin
+ * @description - Composant stylé
  * @param {string} styling - style de forme de l'icon
  * @param {string} color - couleur de fond de l'icon
  * @param {Object} props - contient les options passées individuellement
  * @param {string} [url=href] - contient l'url de partage || par défaut href
  */
-export const LinkedinShare = ({ styling, color: c, props, url = href, text }) => {
+const SetSocial = (name, { styling, color: c, props, url = href, text }) => {
 
-  const { color: cc } = props
-  return (
-    <SocialContainer color={cc ? cc : c} styling={styling} social='linkedin'>
-      <a target="_blank" rel="noopener noreferrer" href={linkedin.url + url}>
-        <div>
-          <FontAwesomeIcon icon={linkedinIcon} size='lg' />
-        </div>
-        {text && linkedin.content}
-      </a>
-    </SocialContainer>
-  );
+	const getSocial = () =>
+		name === "linkedin"
+			? linkedin
+			: name === "pinterest"
+			? pinterest
+      : name === "facebook"
+      && facebook;
+      
+	const getIcon = () =>
+		name === "linkedin"
+			? linkedinIcon
+			: name === "pinterest"
+			? pinterestIcon
+      : name === "facebook"
+      && facebookIcon;
+
+	const { color: cc } = props;
+	return (
+		<SocialContainer color={cc ? cc : c} styling={styling} social={name}>
+			<a target="_blank" rel="noopener noreferrer" href={getSocial().url + url}>
+				<div>
+					<FontAwesomeIcon icon={getIcon()} size="lg" />
+				</div>
+				{text && getSocial().content}
+			</a>
+		</SocialContainer>
+	);
 };
 
-/**
- * @description - Composant stylé Facebook
- * @param {string} styling - style de forme de l'icon
- * @param {string} color - couleur de fond de l'icon
- * @param {Object} props - contient les options passées individuellement
- * @param {string} [url=href] - contient l'url de partage || par défaut href
- */
-export const FacebookShare = ({ styling, color: c, props, url = href, text }) => {
-  const { color: cc } = props
-  return (
-    <SocialContainer color={cc ? cc : c} styling={styling} social='facebook' >
-      <a target="_blank" rel="noopener noreferrer" href={facebook.url + url}>
-        <div>
-          <FontAwesomeIcon icon={facebookIcon} size='lg' />
-        </div>
-        {text && facebook.content}
-      </a>
-    </SocialContainer>
-  );
-};
+export const Linkedin = props => SetSocial("linkedin", props);
 
-/**
- * @description - Composant stylé Pinterest
- * @param {string} styling - style de forme de l'icon
- * @param {string} color - couleur de fond de l'icon
- * @param {Object} props - contient les options passées individuellement
- * @param {string} [url=href] - contient l'url de partage || par défaut href
- */
-export const PinterestShare = ({ styling, color: c, props, url = href, text }) => {
+export const Facebook = props => SetSocial("facebook", props); 
 
-  const { color: cc } = props;
-
-  return (
-    <SocialContainer color={cc ? cc : c} styling={styling} social='pinterest'>
-      <a target="_blank" rel="noopener noreferrer" href={pinterest.url + url}
-        data-pin-do="embedPin"
-      >
-        <div>
-          <FontAwesomeIcon icon={pinterestIcon} size='lg' />
-        </div>
-        {text && pinterest.content}
-      </a>
-    </SocialContainer>
-  );
-};
+export const Pinterest = props => SetSocial("pinterest", props);
 
 /**
  *  Autres social component
  */
+
+ Linkedin.propTypes = {
+   props: PropTypes.shape({
+   styling: PropTypes.func,
+   color: PropTypes.string,
+   props : PropTypes.objectOf(PropTypes.string.isRequired),
+   url: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+   })
+ };
