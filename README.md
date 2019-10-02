@@ -37,7 +37,7 @@ export default MyPost;
 
 ### Exemple de rendu
 ![exemple](https://res.cloudinary.com/dajmcbds4/image/upload/v1570008492/github/react-share-socials-exemple-01092019.png)
-[🧐 voir le code](../blob/master/src/components/fakers/FakePost.js)
+[🧐 voir le code](../master/src/components/fakers/FakePost.js)
 
 ## Modifier l'apparence
 
