@@ -140,3 +140,12 @@ return (
 );
 }
 ```
+## API COMPONENTS
+
+### Socials
+
+props | type | value | default | description
+--- | --- | --- | --- | ---
+position | *string* | H, V | H | Les icons sont alignés verticalement ou horizontalement
+styling | *string* | circle, square | square | La forme des icons | En forme de cercle ou carré
+color | *string* | - | origin color |  La couleur de fond des icons. Par défault celle d'origine
