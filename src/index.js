@@ -1,9 +1,10 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { createGlobalStyle } from 'styled-components';
-import App from './App';
-import color from '../src/utils/style/colors';
+import React from "react";
+import { render } from "react-dom";
+import { createGlobalStyle } from "styled-components";
+import App from "./App";
+import color from "../src/utils/style/colors";
 const { js } = color;
+
 const GlobalStyle = createGlobalStyle`
 *{
   margin: 0;
@@ -29,17 +30,14 @@ header{
 main{
   display: flex;
   justify-content: center;
-  padding-top: 10%;
-}
+  padding-top: 5%;
 }
 `;
+
 render(
-  <>
-    <GlobalStyle />
-    <App />
-  </>
-  ,
-  document.getElementById('root')
+	<>
+		<GlobalStyle />
+		<App />
+	</>,
+	document.getElementById("root")
 );
-
-
