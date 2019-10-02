@@ -26,6 +26,7 @@ const MyPost = () => {
     <Socials>
       <Linkedin />
       <Pinterest />
+      // ... others social media
   </ Socials>
   )
 };
