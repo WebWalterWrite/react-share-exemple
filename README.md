@@ -10,7 +10,7 @@ Les composants enfants héritent par défault des propriétés du composant pare
 
 ```javascript
 import React from 'react';
-import {Linkedin, Pinterest} from '[YOUR PATH'];
+import {Facebook, Linkedin, Pinterest} from '[YOUR PATH'];
 import Socials from '[YOUR PATH]';
 
 const MyPost = () => {
@@ -25,6 +25,7 @@ const MyPost = () => {
     
     <Socials>
       <Linkedin />
+      <Facebook />
       <Pinterest />
       // ... others social media
   </ Socials>
@@ -33,6 +34,9 @@ const MyPost = () => {
 
 export default MyPost;
 ```
+
+### Exemple de rendu
+![exemple](https://res.cloudinary.com/dajmcbds4/image/upload/v1570008492/github/react-share-socials-exemple-01092019.png)
 
 ## Modifier l'apparence
 
@@ -45,7 +49,7 @@ Pour modifier l'apparence il suffit d'ajouter la ou les propriétés à modifier
 
 ```javascript
 import React from 'react';
-import {Linkedin, Pinterest} from '[YOUR PATH'];
+import {Facebook, Linkedin, Pinterest} from '[YOUR PATH'];
 import Socials from '[YOUR PATH]';
 
 const MyPost = () => {
@@ -59,11 +63,11 @@ const MyPost = () => {
     <h2>partager</h2>
     
     <Socials 
-      position="V" // vertical alignment
       color="gray" // color icons
       styling="circle" // shape icons 
     >
       <Linkedin />
+      <Facebook />
       <Pinterest />
       // ... others social media
   </ Socials>
