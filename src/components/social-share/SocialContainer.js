@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Social } from './socials.styled';
 
 /**
@@ -9,6 +10,7 @@ import { Social } from './socials.styled';
  * 
  */
 export const Socials = ({ children, position, styling, color }) => {
+  
   return (
     <Social position={position} >
       {children.map((child, k) => {
@@ -20,4 +22,10 @@ export const Socials = ({ children, position, styling, color }) => {
   )
 };
 
+Socials.propTypes = {
+  children: PropTypes.array,
+  position: PropTypes.oneOf(['H', 'V']),
+  styling: PropTypes.oneOf(['circle']),
+  color: PropTypes.string
+}
 export default Socials;
