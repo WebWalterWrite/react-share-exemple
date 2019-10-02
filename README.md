@@ -110,7 +110,7 @@ const Post = ({idPost}) => {
   useEffect(() => {
     const fetchData = async () => {
     // get data post from API or DB
-    const { data } = await func(sysid);
+    const { data } = await func(idPost);
     return setPost(your data);
     };
   fetchData();
